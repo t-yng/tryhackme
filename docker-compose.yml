@@ -1,8 +1,7 @@
 services:
   kali:
-    build: ./docker/kali
-    image: kali-linux:latest
-    container_name: kali-linux
+    image: ghcr.io/t-yng/kali-linux:latest
+    container_name: ctf-kali-linux
     stdin_open: true
     tty: true
     privileged: true
