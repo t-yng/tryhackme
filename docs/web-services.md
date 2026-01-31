@@ -16,3 +16,15 @@ $ sudo env /bin/bash
 id
 uid=0(root) gid=0(root) groups=0(root)
 ```
+
+## DNSDumpster
+[DNSDumpster.com](https://dnsdumpster.com/) is a free online service that allows you to find details about a domain name's DNS records.
+
+![image01.png](images/web-services/image01.png)
+![image02.png](images/web-services/image02.png)
+![image03.png](images/web-services/image03.png)
+
+## Shodan
+[Shodan](https://www.shodan.io/) is a search engine that allows you to search for devices on the internet.
+
+For example, You can search any website using Next.js with a specific version.

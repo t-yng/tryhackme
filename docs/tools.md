@@ -282,3 +282,87 @@ output/
 └── png
     └── 00000000.png
 ```
+
+## Subfinder
+[Subfinder](https://github.com/projectdiscovery/subfinder) is a tool that finds subdomains of a domain.
+
+```shell
+$ subfinder -d canadianctb.ca
+
+               __    _____           __
+   _______  __/ /_  / __(_)___  ____/ /__  _____
+  / ___/ / / / __ \/ /_/ / __ \/ __  / _ \/ ___/
+ (__  ) /_/ / /_/ / __/ / / / / /_/ /  __/ /
+/____/\__,_/_.___/_/ /_/_/ /_/\__,_/\___/_/
+
+		projectdiscovery.io
+
+[INF] Current subfinder version v2.6.0 (outdated)
+[INF] Loading provider config from /home/kali/.config/subfinder/provider-config.yaml
+[INF] Enumerating subdomains for canadianctb.ca
+web.canadianctb.ca
+go.canadianctb.ca
+housing.canadianctb.ca
+[INF] Found 3 subdomains for canadianctb.ca in 1 minute 45 seconds
+```
+
+## wafw00f
+
+[wafw00f](https://github.com/EnableSecurity/wafw00f) is a tool that 
+identifies and fingerprints Web Application Firewalls (WAF) protecting a website.
+
+```
+$ wafw00f ubc.com
+
+                ______
+               /      \
+              (  W00f! )
+               \  ____/
+               ,,    __            404 Hack Not Found
+           |`-.__   / /                      __     __
+           /"  _/  /_/                       \ \   / /
+          *===*    /                          \ \_/ /  405 Not Allowed
+         /     )__//                           \   /
+    /|  /     /---`                        403 Forbidden
+    \\/`   \ |                                 / _ \
+    `\    /_\\_              502 Bad Gateway  / / \ \  500 Internal Error
+      `_____``-`                             /_/   \_\\
+
+                        ~ WAFW00F : v2.3.2 ~
+        The Web Application Firewall Fingerprinting Toolkit
+
+[*] Checking https://ubc.com
+[+] Generic Detection results:
+[*] The site https://ubc.com seems to be behind a WAF or some sort of security solution
+[~] Reason: The server header is different when an attack is detected.
+The server header for a normal response is "nginx", while the server header a response to an attack is "Varnish",
+[~] Number of requests: 7
+```
+
+## lbd
+[lbd](https://www.kali.org/tools/lbd/) is a tool that see if the target domain is using a load balancer.
+
+```shell
+$ lbd ubc.com
+
+lbd - load balancing detector 0.4 - Checks if a given domain uses load-balancing.
+                                    Written by Stefan Behte (http://ge.mine.nu)
+                                    Proof-of-concept! Might give false positives.
+
+Checking for DNS-Loadbalancing: NOT FOUND
+Checking for HTTP-Loadbalancing [Server]:
+ nginx
+ NOT FOUND
+
+Checking for HTTP-Loadbalancing [Date]: 01:50:58, 01:50:58, 01:50:58, 01:50:58, 01:50:58, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:50:59, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:00, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:01, 01:51:02, 01:51:02, 01:51:02, 01:51:02, 01:51:02, 01:51:02, 01:51:02, 01:51:03, 01:51:03, 01:51:03, 01:51:03, 01:51:03, 01:51:03, 01:51:03, 01:51:03, NOT FOUND
+
+Checking for HTTP-Loadbalancing [Diff]: FOUND
+< X-Served-By: cache-chi-klot8100088-CHI, cache-yyc1430029-YYC, cache-yyc1430029-YYC, cache-yyc1430029-YYC
+> X-Served-By: cache-chi-klot8100088-CHI, cache-yyc1430032-YYC, cache-yyc1430032-YYC, cache-yyc1430032-YYC
+< X-Cache-Hits: 10, 6, 0, 0
+< X-Timer: S1769478664.849162,VS0,VE9
+> X-Cache-Hits: 10, 17, 0, 0
+> X-Timer: S1769478664.927384,VS0,VE8
+
+ubc.com does Load-balancing. Found via Methods: HTTP[Diff]
+```
